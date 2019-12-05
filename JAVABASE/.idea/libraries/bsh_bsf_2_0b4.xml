@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="bsh-bsf-2.0b4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bsh-bsf-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-classgen-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-classpath-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-commands-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-core-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-reflect-2.0b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bsh-util-2.0b4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

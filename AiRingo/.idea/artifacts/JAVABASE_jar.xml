@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JAVABASE:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JAVABASE_jar</output-path>
+    <root id="archive" name="JAVABASE.jar">
+      <element id="module-output" name="MingoXD" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/antlr-4.7.2-complete.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/beansbinding-1.2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/autocomplete.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/rsyntaxtextarea.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
