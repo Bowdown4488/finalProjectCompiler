@@ -1,16 +1,9 @@
 package Main;
 
-import bsh.EvalError;
-import bsh.Interpreter;
-import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.v4.gui.TreeViewer;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-import javax.swing.*;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.Arrays;
 
 public class Main
@@ -30,7 +23,7 @@ public class Main
     public void scan(String srccode) {
         try {
 
-            MingoXDLexer lexer = new MingoXDLexer(new ANTLRInputStream(srccode));
+            AiRingoLexer lexer = new AiRingoLexer(new ANTLRInputStream(srccode));
             Token token;
             int count = 1;
             frame.printOutput("## Tokens ##\n");
@@ -49,8 +42,8 @@ public class Main
 
     public void parse(String srccode) {
 
-        MingoXDLexer lexer = new MingoXDLexer(new ANTLRInputStream(srccode));
-        MingoXDParser parser = new MingoXDParser(new CommonTokenStream(lexer));
+        AiRingoLexer lexer = new AiRingoLexer(new ANTLRInputStream(srccode));
+        AiRingoParser parser = new AiRingoParser(new CommonTokenStream(lexer));
 
         try {
             parser.removeErrorListeners();
@@ -70,29 +63,29 @@ public class Main
     public void run(String srccode) {
 
         String newCode = "";
-        MingoXDLexer lexer = new MingoXDLexer(new ANTLRInputStream(srccode));
+        AiRingoLexer lexer = new AiRingoLexer(new ANTLRInputStream(srccode));
         Token token;
-        while ((token = lexer.nextToken()).getType() != MingoXDParser.EOF) {
-            if (token.getType() != MingoXDParser.EOF) {
+        while ((token = lexer.nextToken()).getType() != AiRingoParser.EOF) {
+            if (token.getType() != AiRingoParser.EOF) {
                 String tokenText = token.getText();
-                if(tokenText.equals("output")){
+                if(tokenText.equals("printo")){
                     tokenText = "print";
-                }else if(tokenText.equals("pablik")){
+                }else if(tokenText.equals("pubriko")){
                     tokenText = "public";
-                }else if(tokenText.equals("boid")){
+                }else if(tokenText.equals("boido")){
                     tokenText = "void";
-                }else if(tokenText.equals("klas")){
+                }else if(tokenText.equals("kurasu")){
                     tokenText = "class";
-                }else if(tokenText.equals("eent")){
+                }else if(tokenText.equals("into")){
                     tokenText = "int";
                 }
             newCode += tokenText + " ";
             }
         }
-        MingoXDParser parser = new MingoXDParser(new CommonTokenStream(lexer));
+        AiRingoParser parser = new AiRingoParser(new CommonTokenStream(lexer));
 
         try {
-            MingoXDInterpreter interpreter = new MingoXDInterpreter(frame, newCode);
+            AiRingoInterpreter interpreter = new AiRingoInterpreter(frame, newCode);
             ParseTree pTree = parser.run();
             interpreter.visit(pTree);
         }

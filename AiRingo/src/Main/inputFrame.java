@@ -227,8 +227,8 @@ public class inputFrame extends JFrame {
 
     private void setPreference() {
         this.prefs = Preferences.userNodeForPackage(inputFrame.class);
-        String starterText = "pablik klas Main{\n" +
-                "\tpablik Main(){\n" +
+        String starterText = "pubriko kurasu Main{\n" +
+                "\tpubriko Main(){\n" +
                 "\t\t// Enter main code here\n" +
                 "\t}\n" +
                 "}\n" +
