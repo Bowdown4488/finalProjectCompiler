@@ -96,6 +96,8 @@ public class Main
                     tokenText = "double";
                 }else if(tokenText.equals("erusu")){
                     tokenText = "else";
+                }else if(tokenText.equals("erusu ifu")){
+                    tokenText = "else if";
                 }else if(tokenText.equals("enumu")){
                     tokenText = "enum";
                 }else if(tokenText.equals("extendo")){
@@ -142,6 +144,8 @@ public class Main
                     tokenText = "static";
                 }else if(tokenText.equals("strictofp")){
                     tokenText = "strictfp";
+                }else if(tokenText.equals("Stringu")){
+                    tokenText = "String";
                 }else if(tokenText.equals("supa")){
                     tokenText = "super";
                 }else if(tokenText.equals("switchu")){
