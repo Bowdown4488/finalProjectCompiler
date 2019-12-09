@@ -60,8 +60,7 @@ public class Main
         }
     }
 
-    public void run(String srccode) {
-
+    public String translateCode(String srccode){
         String newCode = "";
         AiRingoLexer lexer = new AiRingoLexer(new ANTLRInputStream(srccode));
         Token token;
@@ -170,13 +169,20 @@ public class Main
                     tokenText = "while";
                 }
 
-            newCode += tokenText + " ";
+                newCode += tokenText + " ";
             }
         }
+        return newCode;
+    }
+
+    public void run(String srccode) {
+
+
+        AiRingoLexer lexer = new AiRingoLexer(new ANTLRInputStream());
         AiRingoParser parser = new AiRingoParser(new CommonTokenStream(lexer));
 
         try {
-            AiRingoInterpreter interpreter = new AiRingoInterpreter(frame, newCode);
+            AiRingoInterpreter interpreter = new AiRingoInterpreter(frame, translateCode(srccode));
             ParseTree pTree = parser.run();
             interpreter.visit(pTree);
         }

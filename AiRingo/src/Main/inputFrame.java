@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.prefs.Preferences;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -21,6 +22,7 @@ import org.fife.ui.autocomplete.CompletionProvider;
 import org.fife.ui.autocomplete.DefaultCompletionProvider;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
+import org.fife.ui.rsyntaxtextarea.Theme;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 
@@ -148,21 +150,6 @@ public class inputFrame extends JFrame {
         this.textArea.setMarkOccurrences(true);
         this.textArea.setCloseMarkupTags(true);
         this.textArea.setBackground(Color.lightGray);
-        SyntaxScheme scheme = this.textArea.getSyntaxScheme();
-        (scheme.styles[16]).foreground = Color.black;
-        (scheme.styles[2]).foreground = Color.gray;
-        (scheme.styles[15]).foreground = Color.black;
-        (scheme.styles[4]).foreground = Color.magenta.darker();
-        (scheme.styles[13]).foreground = Color.blue;
-        (scheme.styles[15]).foreground = Color.black;
-        (scheme.styles[18]).foreground = Color.black;
-        (scheme.styles[17]).foreground = Color.black;
-        (scheme.styles[6]).foreground = Color.green.darker();
-        (scheme.styles[11]).foreground = Color.green.darker();
-        (scheme.styles[7]).foreground = Color.green.darker();
-        (scheme.styles[8]).foreground = Color.green.darker();
-        (scheme.styles[9]).foreground = Color.green.darker();
-        (scheme.styles[10]).foreground = Color.green.darker();
         this.scrollPane.setViewportView((Component) this.textArea);
         ac.install((JTextComponent) this.textArea);
         this.scrollPane_1 = new JScrollPane();
@@ -179,6 +166,14 @@ public class inputFrame extends JFrame {
         this.scrollPane_2.setViewportView(this.variablePane);
         this.textPane.setFont(new Font("Lucida Console", 0, 12));
         this.variablePane.setFont(new Font("Lucida Console", 0, 12));
+
+        try {
+            Theme theme = Theme.load(getClass().getResourceAsStream(
+                    "/org/fife/ui/rsyntaxtextarea/themes/monokai.xml"));
+            theme.apply(this.textArea);
+        } catch (IOException ioe) { // Never happens
+            ioe.printStackTrace();
+        }
 
         setPreference();
 

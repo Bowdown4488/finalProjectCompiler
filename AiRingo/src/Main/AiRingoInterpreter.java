@@ -21,7 +21,7 @@ import java.util.*;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class AiRingoInterpreter<T> extends AbstractParseTreeVisitor<T> implements AiRingoVisitor<T> {
+public class  AiRingoInterpreter<T> extends AbstractParseTreeVisitor<T> implements AiRingoVisitor<T> {
     final String PRINT = "output";
     final String PRINTLN = "outputln";
     final String INPUT = "input";
