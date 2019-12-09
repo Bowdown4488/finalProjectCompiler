@@ -89,6 +89,8 @@ public class inputFrame extends JFrame {
         this.lowerSplitPane.setOrientation(1);
         this.panel.setLayout(new BorderLayout(0, 0));
         JToolBar toolBar = new JToolBar();
+        GridBagLayout gbl = new GridBagLayout();
+        toolBar.setLayout(gbl);
         this.panel.add(toolBar, "South");
         btnParse = new JButton("Parse");
         btnParse.addActionListener(new ActionListener() {
@@ -102,9 +104,7 @@ public class inputFrame extends JFrame {
                 inputFrame.this.scanButtonPressed();
             }
         });
-        this.icon = new JLabel();
-        this.icon.setText("");
-        toolBar.add(this.icon);
+        btnParse.setSize(1000, btnParse.getHeight());
         toolBar.add(this.btnScan);
         toolBar.add(this.btnParse);
         this.separator = new JSeparator();
