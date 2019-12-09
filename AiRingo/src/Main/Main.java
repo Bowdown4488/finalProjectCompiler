@@ -167,6 +167,14 @@ public class Main
                     tokenText = "volatile";
                 }else if(tokenText.equals("wairu")){
                     tokenText = "while";
+                }else if(tokenText.equals(("strInputo"))){
+                    tokenText = "JOptionPane.showInputDialog(\"String Input\"));";
+                }else if(tokenText.equals(("intInputo"))){
+                    tokenText = "Integer.parseInt(JOptionPane.showInputDialog(\"Integer Input\"));";
+                }else if(tokenText.equals(("floInputo"))){
+                    tokenText = "Float.parseFloat(JOptionPane.showInputDialog(\"Float Input\"));";
+                }else if(tokenText.equals(("dobInputo"))){
+                    tokenText = "Double.parseDouble(JOptionPane.showInputDialog(\"Double Input\"));";
                 }
 
                 newCode += tokenText + " ";
