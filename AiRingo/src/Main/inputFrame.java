@@ -20,9 +20,7 @@ import org.fife.ui.autocomplete.BasicCompletion;
 import org.fife.ui.autocomplete.Completion;
 import org.fife.ui.autocomplete.CompletionProvider;
 import org.fife.ui.autocomplete.DefaultCompletionProvider;
-import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
-import org.fife.ui.rsyntaxtextarea.Theme;
+import org.fife.ui.rsyntaxtextarea.*;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 
@@ -59,6 +57,8 @@ public class inputFrame extends JFrame {
         lowerSplitPane.setDividerLocation(0.5);
     }
     public inputFrame() {
+        AbstractTokenMakerFactory atmf = (AbstractTokenMakerFactory) TokenMakerFactory.getDefaultInstance();
+        atmf.putMapping("text/airingo", "Main.AiRingoTokenMaker");
         this.sc = StyleContext.getDefaultStyleContext();
         this.asetRed = this.sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.RED);
         this.asetBlack = this.sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, Color.BLACK);
@@ -142,7 +142,7 @@ public class inputFrame extends JFrame {
         this.textArea.setFont(new Font("Comic Sans MS", 0, 16));
         this.textArea.setWrapStyleWord(true);
         this.textArea.setFont(new Font("Comic Sans MS", 0, 16));
-        this.textArea.setSyntaxEditingStyle("text/java");
+        this.textArea.setSyntaxEditingStyle("text/airingo");
         this.textArea.setAutoIndentEnabled(true);
         this.textArea.setAnimateBracketMatching(true);
         this.textArea.setBracketMatchingEnabled(true);
