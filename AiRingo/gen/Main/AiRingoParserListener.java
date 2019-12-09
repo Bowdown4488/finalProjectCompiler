@@ -8,15 +8,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AiRingoParserListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link AiRingoParser#startRule}.
+	 * Enter a parse tree produced by {@link AiRingoParser#run}.
 	 * @param ctx the parse tree
 	 */
-	void enterStartRule(AiRingoParser.StartRuleContext ctx);
+	void enterRun(AiRingoParser.RunContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AiRingoParser#startRule}.
+	 * Exit a parse tree produced by {@link AiRingoParser#run}.
 	 * @param ctx the parse tree
 	 */
-	void exitStartRule(AiRingoParser.StartRuleContext ctx);
+	void exitRun(AiRingoParser.RunContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#literal}.
 	 * @param ctx the parse tree
@@ -188,6 +188,16 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 */
 	void exitTypeParameter(AiRingoParser.TypeParameterContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#typeParameterModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeParameterModifier(AiRingoParser.TypeParameterModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#typeParameterModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeParameterModifier(AiRingoParser.TypeParameterModifierContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#typeBound}.
 	 * @param ctx the parse tree
 	 */
@@ -258,6 +268,16 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 */
 	void exitWildcardBounds(AiRingoParser.WildcardBoundsContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#packageName}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageName(AiRingoParser.PackageNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#packageName}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageName(AiRingoParser.PackageNameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#typeName}.
 	 * @param ctx the parse tree
 	 */
@@ -267,6 +287,16 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypeName(AiRingoParser.TypeNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#packageOrTypeName}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageOrTypeName(AiRingoParser.PackageOrTypeNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#packageOrTypeName}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageOrTypeName(AiRingoParser.PackageOrTypeNameContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#expressionName}.
 	 * @param ctx the parse tree
@@ -297,6 +327,86 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAmbiguousName(AiRingoParser.AmbiguousNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageDeclaration(AiRingoParser.PackageDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageDeclaration(AiRingoParser.PackageDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#packageModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageModifier(AiRingoParser.PackageModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#packageModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageModifier(AiRingoParser.PackageModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportDeclaration(AiRingoParser.ImportDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportDeclaration(AiRingoParser.ImportDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#singleTypeImportDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleTypeImportDeclaration(AiRingoParser.SingleTypeImportDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#singleTypeImportDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleTypeImportDeclaration(AiRingoParser.SingleTypeImportDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#typeImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeImportOnDemandDeclaration(AiRingoParser.TypeImportOnDemandDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#typeImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeImportOnDemandDeclaration(AiRingoParser.TypeImportOnDemandDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#singleStaticImportDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleStaticImportDeclaration(AiRingoParser.SingleStaticImportDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#singleStaticImportDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleStaticImportDeclaration(AiRingoParser.SingleStaticImportDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#staticImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterStaticImportOnDemandDeclaration(AiRingoParser.StaticImportOnDemandDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#staticImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitStaticImportOnDemandDeclaration(AiRingoParser.StaticImportOnDemandDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#typeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeDeclaration(AiRingoParser.TypeDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#typeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeDeclaration(AiRingoParser.TypeDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#classDeclaration}.
 	 * @param ctx the parse tree
@@ -648,6 +758,26 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 */
 	void exitFormalParameterList(AiRingoParser.FormalParameterListContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#formalParameters}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameters(AiRingoParser.FormalParametersContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#formalParameters}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameters(AiRingoParser.FormalParametersContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#formalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameter(AiRingoParser.FormalParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#formalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameter(AiRingoParser.FormalParameterContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#variableModifier}.
 	 * @param ctx the parse tree
 	 */
@@ -657,6 +787,26 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariableModifier(AiRingoParser.VariableModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#lastFormalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterLastFormalParameter(AiRingoParser.LastFormalParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#lastFormalParameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitLastFormalParameter(AiRingoParser.LastFormalParameterContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#receiverParameter}.
+	 * @param ctx the parse tree
+	 */
+	void enterReceiverParameter(AiRingoParser.ReceiverParameterContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#receiverParameter}.
+	 * @param ctx the parse tree
+	 */
+	void exitReceiverParameter(AiRingoParser.ReceiverParameterContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#throws_}.
 	 * @param ctx the parse tree
@@ -818,6 +968,16 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 */
 	void exitEnumConstant(AiRingoParser.EnumConstantContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#enumConstantModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumConstantModifier(AiRingoParser.EnumConstantModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#enumConstantModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumConstantModifier(AiRingoParser.EnumConstantModifierContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#enumBodyDeclarations}.
 	 * @param ctx the parse tree
 	 */
@@ -827,6 +987,256 @@ public interface AiRingoParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEnumBodyDeclarations(AiRingoParser.EnumBodyDeclarationsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceDeclaration(AiRingoParser.InterfaceDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceDeclaration(AiRingoParser.InterfaceDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#normalInterfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterNormalInterfaceDeclaration(AiRingoParser.NormalInterfaceDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#normalInterfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitNormalInterfaceDeclaration(AiRingoParser.NormalInterfaceDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceModifier(AiRingoParser.InterfaceModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceModifier(AiRingoParser.InterfaceModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#extendsInterfaces}.
+	 * @param ctx the parse tree
+	 */
+	void enterExtendsInterfaces(AiRingoParser.ExtendsInterfacesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#extendsInterfaces}.
+	 * @param ctx the parse tree
+	 */
+	void exitExtendsInterfaces(AiRingoParser.ExtendsInterfacesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceBody(AiRingoParser.InterfaceBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceBody(AiRingoParser.InterfaceBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMemberDeclaration(AiRingoParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMemberDeclaration(AiRingoParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#constantDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantDeclaration(AiRingoParser.ConstantDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#constantDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantDeclaration(AiRingoParser.ConstantDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#constantModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantModifier(AiRingoParser.ConstantModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#constantModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantModifier(AiRingoParser.ConstantModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMethodDeclaration(AiRingoParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMethodDeclaration(AiRingoParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMethodModifier(AiRingoParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMethodModifier(AiRingoParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotationTypeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationTypeDeclaration(AiRingoParser.AnnotationTypeDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotationTypeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationTypeDeclaration(AiRingoParser.AnnotationTypeDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotationTypeBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationTypeBody(AiRingoParser.AnnotationTypeBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotationTypeBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationTypeBody(AiRingoParser.AnnotationTypeBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotationTypeMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationTypeMemberDeclaration(AiRingoParser.AnnotationTypeMemberDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotationTypeMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationTypeMemberDeclaration(AiRingoParser.AnnotationTypeMemberDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotationTypeElementDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationTypeElementDeclaration(AiRingoParser.AnnotationTypeElementDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotationTypeElementDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationTypeElementDeclaration(AiRingoParser.AnnotationTypeElementDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotationTypeElementModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationTypeElementModifier(AiRingoParser.AnnotationTypeElementModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotationTypeElementModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationTypeElementModifier(AiRingoParser.AnnotationTypeElementModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#defaultValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefaultValue(AiRingoParser.DefaultValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#defaultValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefaultValue(AiRingoParser.DefaultValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#annotation}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotation(AiRingoParser.AnnotationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#annotation}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotation(AiRingoParser.AnnotationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#normalAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void enterNormalAnnotation(AiRingoParser.NormalAnnotationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#normalAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void exitNormalAnnotation(AiRingoParser.NormalAnnotationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#elementValuePairList}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValuePairList(AiRingoParser.ElementValuePairListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#elementValuePairList}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValuePairList(AiRingoParser.ElementValuePairListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#elementValuePair}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValuePair(AiRingoParser.ElementValuePairContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#elementValuePair}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValuePair(AiRingoParser.ElementValuePairContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#elementValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValue(AiRingoParser.ElementValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#elementValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValue(AiRingoParser.ElementValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#elementValueArrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValueArrayInitializer(AiRingoParser.ElementValueArrayInitializerContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#elementValueArrayInitializer}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValueArrayInitializer(AiRingoParser.ElementValueArrayInitializerContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#elementValueList}.
+	 * @param ctx the parse tree
+	 */
+	void enterElementValueList(AiRingoParser.ElementValueListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#elementValueList}.
+	 * @param ctx the parse tree
+	 */
+	void exitElementValueList(AiRingoParser.ElementValueListContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#markerAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void enterMarkerAnnotation(AiRingoParser.MarkerAnnotationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#markerAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void exitMarkerAnnotation(AiRingoParser.MarkerAnnotationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AiRingoParser#singleElementAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleElementAnnotation(AiRingoParser.SingleElementAnnotationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AiRingoParser#singleElementAnnotation}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleElementAnnotation(AiRingoParser.SingleElementAnnotationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link AiRingoParser#arrayInitializer}.
 	 * @param ctx the parse tree

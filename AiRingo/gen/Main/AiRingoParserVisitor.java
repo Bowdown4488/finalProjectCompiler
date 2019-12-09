@@ -11,11 +11,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link AiRingoParser#startRule}.
+	 * Visit a parse tree produced by {@link AiRingoParser#run}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStartRule(AiRingoParser.StartRuleContext ctx);
+	T visitRun(AiRingoParser.RunContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#literal}.
 	 * @param ctx the parse tree
@@ -119,6 +119,12 @@ public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeParameter(AiRingoParser.TypeParameterContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#typeParameterModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeParameterModifier(AiRingoParser.TypeParameterModifierContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#typeBound}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -161,11 +167,23 @@ public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWildcardBounds(AiRingoParser.WildcardBoundsContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#packageName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPackageName(AiRingoParser.PackageNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#typeName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitTypeName(AiRingoParser.TypeNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#packageOrTypeName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPackageOrTypeName(AiRingoParser.PackageOrTypeNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#expressionName}.
 	 * @param ctx the parse tree
@@ -184,6 +202,54 @@ public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAmbiguousName(AiRingoParser.AmbiguousNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#packageDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPackageDeclaration(AiRingoParser.PackageDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#packageModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPackageModifier(AiRingoParser.PackageModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#importDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImportDeclaration(AiRingoParser.ImportDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#singleTypeImportDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleTypeImportDeclaration(AiRingoParser.SingleTypeImportDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#typeImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeImportOnDemandDeclaration(AiRingoParser.TypeImportOnDemandDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#singleStaticImportDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleStaticImportDeclaration(AiRingoParser.SingleStaticImportDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#staticImportOnDemandDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStaticImportOnDemandDeclaration(AiRingoParser.StaticImportOnDemandDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#typeDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeDeclaration(AiRingoParser.TypeDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#classDeclaration}.
 	 * @param ctx the parse tree
@@ -395,11 +461,35 @@ public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFormalParameterList(AiRingoParser.FormalParameterListContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#formalParameters}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameters(AiRingoParser.FormalParametersContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#formalParameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameter(AiRingoParser.FormalParameterContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#variableModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariableModifier(AiRingoParser.VariableModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#lastFormalParameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLastFormalParameter(AiRingoParser.LastFormalParameterContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#receiverParameter}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReceiverParameter(AiRingoParser.ReceiverParameterContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#throws_}.
 	 * @param ctx the parse tree
@@ -497,11 +587,167 @@ public interface AiRingoParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnumConstant(AiRingoParser.EnumConstantContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#enumConstantModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnumConstantModifier(AiRingoParser.EnumConstantModifierContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#enumBodyDeclarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitEnumBodyDeclarations(AiRingoParser.EnumBodyDeclarationsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceDeclaration(AiRingoParser.InterfaceDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#normalInterfaceDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNormalInterfaceDeclaration(AiRingoParser.NormalInterfaceDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceModifier(AiRingoParser.InterfaceModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#extendsInterfaces}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExtendsInterfaces(AiRingoParser.ExtendsInterfacesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceBody(AiRingoParser.InterfaceBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMemberDeclaration(AiRingoParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#constantDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstantDeclaration(AiRingoParser.ConstantDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#constantModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstantModifier(AiRingoParser.ConstantModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMethodDeclaration(AiRingoParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMethodModifier(AiRingoParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotationTypeDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationTypeDeclaration(AiRingoParser.AnnotationTypeDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotationTypeBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationTypeBody(AiRingoParser.AnnotationTypeBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotationTypeMemberDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationTypeMemberDeclaration(AiRingoParser.AnnotationTypeMemberDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotationTypeElementDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationTypeElementDeclaration(AiRingoParser.AnnotationTypeElementDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotationTypeElementModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationTypeElementModifier(AiRingoParser.AnnotationTypeElementModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#defaultValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefaultValue(AiRingoParser.DefaultValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#annotation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotation(AiRingoParser.AnnotationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#normalAnnotation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNormalAnnotation(AiRingoParser.NormalAnnotationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#elementValuePairList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElementValuePairList(AiRingoParser.ElementValuePairListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#elementValuePair}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElementValuePair(AiRingoParser.ElementValuePairContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#elementValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElementValue(AiRingoParser.ElementValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#elementValueArrayInitializer}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElementValueArrayInitializer(AiRingoParser.ElementValueArrayInitializerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#elementValueList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElementValueList(AiRingoParser.ElementValueListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#markerAnnotation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMarkerAnnotation(AiRingoParser.MarkerAnnotationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AiRingoParser#singleElementAnnotation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleElementAnnotation(AiRingoParser.SingleElementAnnotationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AiRingoParser#arrayInitializer}.
 	 * @param ctx the parse tree
