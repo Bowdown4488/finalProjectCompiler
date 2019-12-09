@@ -36,7 +36,7 @@ public class inputFrame extends JFrame {
     private JButton btnInterpret;
     private JSeparator separator;
     private JTextField textField_1;
-    //    private JTextField txtSearch;
+    private JTextField txtSearch;
     private JSplitPane splitPane;
     private JSplitPane lowerSplitPane;
     private JTextPane textPane;
@@ -44,7 +44,7 @@ public class inputFrame extends JFrame {
     StyleContext sc;
     AttributeSet asetRed;
     AttributeSet asetBlack;
-    private JButton btnClearConsole;
+//    private JButton btnClearConsole;
     private JScrollPane scrollPane_1;
     private JScrollPane scrollPane_2;
     private JLabel icon;
@@ -89,7 +89,7 @@ public class inputFrame extends JFrame {
         this.lowerSplitPane.setOrientation(1);
         this.panel.setLayout(new BorderLayout(0, 0));
         JToolBar toolBar = new JToolBar();
-        this.panel.add(toolBar, "North");
+        this.panel.add(toolBar, "South");
         btnParse = new JButton("Parse");
         btnParse.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -109,20 +109,24 @@ public class inputFrame extends JFrame {
         toolBar.add(this.btnParse);
         this.separator = new JSeparator();
         toolBar.add(this.separator);
-        this.btnInterpret = new JButton("Interpret");
+        this.btnInterpret = new JButton("Run");
         this.btnInterpret.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 inputFrame.this.interpretButtonPressed();
             }
         });
         toolBar.add(this.btnInterpret);
-        this.btnClearConsole = new JButton("Clear Console");
-        this.btnClearConsole.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                inputFrame.this.clearButtonPressed();
-            }
-        });
-        toolBar.add(this.btnClearConsole);
+
+//        this.txtSearch = new JTextField();
+//        toolBar.add(this.txtSearch);
+
+//        this.btnClearConsole = new JButton("Clear Console");
+//        this.btnClearConsole.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent arg0) {
+//                inputFrame.this.clearButtonPressed();
+//            }
+//        });
+//        toolBar.add(this.btnClearConsole);
         this.textField_1 = new JTextField();
         this.textField_1.setEditable(false);
         toolBar.add(this.textField_1);
@@ -133,9 +137,9 @@ public class inputFrame extends JFrame {
         AutoCompletion ac = new AutoCompletion(provider);
         this.textArea = new RSyntaxTextArea();
         this.textArea.setWrapStyleWord(true);
-        this.textArea.setFont(new Font("Courier New", 0, 14));
+        this.textArea.setFont(new Font("Comic Sans MS", 0, 16));
         this.textArea.setWrapStyleWord(true);
-        this.textArea.setFont(new Font("Courier New", 0, 14));
+        this.textArea.setFont(new Font("Comic Sans MS", 0, 16));
         this.textArea.setSyntaxEditingStyle("text/java");
         this.textArea.setAutoIndentEnabled(true);
         this.textArea.setAnimateBracketMatching(true);
@@ -143,6 +147,7 @@ public class inputFrame extends JFrame {
         this.textArea.setCloseCurlyBraces(true);
         this.textArea.setMarkOccurrences(true);
         this.textArea.setCloseMarkupTags(true);
+        this.textArea.setBackground(Color.lightGray);
         SyntaxScheme scheme = this.textArea.getSyntaxScheme();
         (scheme.styles[16]).foreground = Color.black;
         (scheme.styles[2]).foreground = Color.gray;
@@ -167,11 +172,13 @@ public class inputFrame extends JFrame {
         this.lowerSplitPane.setLeftComponent(this.scrollPane_1);
         this.lowerSplitPane.setRightComponent(this.scrollPane_2);
         this.textPane = new JTextPane();
+        textPane.setBackground(Color.lightGray);
+        variablePane.setBackground(Color.lightGray);
 //        this.textPane.setEditable(false);
         this.scrollPane_1.setViewportView(this.textPane);
         this.scrollPane_2.setViewportView(this.variablePane);
-        this.textPane.setFont(new Font("Lucida Console", 0, 11));
-        this.variablePane.setFont(new Font("Lucida Console", 0, 11));
+        this.textPane.setFont(new Font("Lucida Console", 0, 12));
+        this.variablePane.setFont(new Font("Lucida Console", 0, 12));
 
         setPreference();
 
@@ -204,27 +211,6 @@ public class inputFrame extends JFrame {
         this.main = m;
     }
 
-//    protected void findText(boolean forward) {
-//        String text = this.txtSearch.getText();
-//        if (text.length() == 0)
-//            return;
-//        boolean wholeWord = false;
-//        boolean found = SearchEngine.find((JTextArea) this.textArea, text, forward, false, wholeWord, false);
-//        if (!found) {
-//            int pos = this.textArea.getCaretPosition();
-//            if (forward) {
-//                this.textArea.setCaretPosition(0);
-//            } else {
-//                this.textArea.setCaretPosition(this.textArea.getText().length());
-//            }
-//            boolean found2 = SearchEngine.find((JTextArea) this.textArea, text, forward, false, wholeWord, false);
-//            if (!found2) {
-//                this.textArea.setCaretPosition(pos);
-//                JOptionPane.showMessageDialog(this, "Text not found");
-//            }
-//        }
-//    }
-
     private void setPreference() {
         this.prefs = Preferences.userNodeForPackage(inputFrame.class);
         String starterText = "pubriko kurasu Main{\n" +
@@ -252,13 +238,19 @@ public class inputFrame extends JFrame {
     }
 
     protected void interpretButtonPressed() {
+        this.textPane.setText("");
+        this.variablePane.setText("");
         this.main.run(this.textArea.getText());
     }
 
-    protected void clearButtonPressed() {
-        this.textPane.setText("");
-        this.variablePane.setText("");
-    }
+//    protected void findStringEntered(){
+//
+//    }
+
+//    protected void clearButtonPressed() {
+//        this.textPane.setText("");
+//        this.variablePane.setText("");
+//    }
 
     public void printOutput(String s) {
         int len = this.textPane.getDocument().getLength();
